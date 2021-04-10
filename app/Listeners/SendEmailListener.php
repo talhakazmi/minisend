@@ -23,12 +23,12 @@ class SendEmailListener
     /**
      * Handle the event.
      *
-     * @param  SendEmailEvent  $event
+     * @param SendEmailEvent $event
      * @return void
      */
     public function handle(SendEmailEvent $event)
     {
-        $emailJob = (new SendEmailJob($event->emailData))->delay(Carbon::now()->addSeconds(2));
+        $emailJob = (new SendEmailJob($event->emailData))->delay(Carbon::now()->addSeconds(10));
         dispatch($emailJob);
     }
 }

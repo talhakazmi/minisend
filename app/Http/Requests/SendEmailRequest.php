@@ -26,11 +26,11 @@ class SendEmailRequest extends FormRequest
     public function rules()
     {
         return [
-            'sender' => 'required',
-            'receiver' => 'required',
+            'sender' => 'required|email',
+            'receiver' => 'required|email',
             'subject' => 'required',
             'content' => 'required',
-            'attachments' => 'nullable',
+            'attachments.*' => 'nullable|file',
         ];
     }
 

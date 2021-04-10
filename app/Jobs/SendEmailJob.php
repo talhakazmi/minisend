@@ -56,6 +56,6 @@ class SendEmailJob implements ShouldQueue
         } catch (\Exception $exception) {
             $status = 'failed';
         }
-        Email::where('uuid',$emailData['uuid'])->update(['status' => $status]);
+        Email::where('uuid', $emailData['uuid'])->update(['status' => $status]);
     }
 }

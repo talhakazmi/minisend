@@ -20,7 +20,7 @@ class InsertEmailRecord
     /**
      * Handle the event.
      *
-     * @param  SendEmailEvent  $event
+     * @param SendEmailEvent $event
      * @return void
      */
     public function handle(SendEmailEvent $event)

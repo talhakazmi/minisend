@@ -24,6 +24,12 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function (){
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+
+    Route::get('emails', [\App\Http\Controllers\EmailController::class, 'index'])->name('emails.list');
+    Route::get('emails/{id}', [\App\Http\Controllers\EmailController::class, 'show'])->name('emails.show');
+    Route::get('email/create', [\App\Http\Controllers\EmailController::class, 'create'])->name('emails.create');
+});
